@@ -32,7 +32,16 @@ import { Component } from '@angular/core';
     }
 
     table {
-      .border: 1px;
+      border-collapse: collapse;
+      border: 1px solid #ccc;
+    }
+    table th {
+      background: #dcdcd1;
+      border: 1px solid #ccc;
+    }
+    table td {
+      border: 1px solid #ccc;
+      padding: 0px 10px 0px 10px;
     }
   `]
 
