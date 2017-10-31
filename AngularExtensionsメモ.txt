@@ -1,0 +1,37 @@
+■VSCodeでAngularを書く際に便利なExtensions
+https://qiita.com/tkiryu/items/98596eb40a83373af9bd
+VSCodeを起動し、一番左のアクティビティバーの「拡張機能」より必要なライブラリを検索しインストール
+
+とりあえず「Angular Essentials」をインストールしておけば
+だいたいのものが入る。
+個別にインストールすることも可能
+・Angular v4 Snippets
+・Angular Language Service 
+・Editor Config
+・tslint
+・Chrome Debugger
+・Bracket Pair Colorizer
+・Path Intellisense		
+・Angular Inline
+・Angular Material Theme
+
+
+▼ Angular Language Service
+Angular 本家が開発している Extension で template に対してプロパティ補完をしてくれる強力な Extension です。
+存在しないプロパティを指定すればエラーチェックがかかって教えてくれます。
+
+▼ Path Intellisense
+ファイルパスを補完してくれる Extension です。
+例えば Component の templateUrl や styleUrls に外部の HTMLファイルや CSS/SCSSファイルのファイルパスを記述する際に ./ までタイプすれば
+すぐに候補が表示され入力の手間が省けます。
+この Extension 自体は Angular に限った話ではなく、<script src=""> や <link href="">, <img src=""> など
+ファイルパスを入力する様々な個所で使用することができます。
+
+▼ Angular 2 TypeScript Emmet
+通常 Component でインライン template を記述する際 Emmet が効きません。
+この Extension を使えば template の中でも Emmet の恩恵を受けることができるようになります。
+
+▼ angular2-inline
+通常 Component でインライン template を記述した際、全て文字列のため HTML タグや CSS クラスのハイライトが行われません。
+この Extension をインストールすると、template 内を通常の HTML ファイルのようにハイライト表示させることができるようになります。
+

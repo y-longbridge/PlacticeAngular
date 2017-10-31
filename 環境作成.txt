@@ -1,0 +1,30 @@
+■Node.jsのダウンロード
+https://nodejs.org/ja/
+※インストールはデフォルトのままでOK
+※Angularで使用するのは NodeJS 4.x 以降
+
+■VSCodeのインストール
+https://eng-entrance.com/texteditor-vscode
+
+■VSCodeでAngularを書く際に便利なExtensionsを入れる
+https://qiita.com/tkiryu/items/98596eb40a83373af9bd
+VSCodeを起動し、一番左のアクティビティバーの「拡張機能」より
+「Angular Essentials」を検索しインストール
+※AngularExtensionsメモ.txt参照
+
+■angular
+quickstartのダウンロード
+https://github.com/angular/quickstart
+解凍したフォルダをプロジェクト名にリネームする
+
+■実行
+コマンドプロンプト起動し、プロジェクトフォルダに移動
+
+コマンドでプロジェクトに Node.js をインストール
+npm install
+
+コマンドで Node.js 標準の開発用Httpサーバーを起動
+npm start
+
+以上でプロジェクトフォルダ内の Src\index.htmlが起動される
+
