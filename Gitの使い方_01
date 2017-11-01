@@ -1,7 +1,9 @@
 ■わかりやすいサイト
 http://kray.jp/blog/git-why-explanation/
 
-■GitHubでソース管理.xlsxでレポジトリ作成し、作業ディレクトリを設定した状態からのスタート
+■
+GitHubにログインし、
+右上のプロファイル画像から「settings」を選択し、表示された画面のメニューから「Repositories」をクリック
 ↓
 ファイルなどを追加する
 ↓

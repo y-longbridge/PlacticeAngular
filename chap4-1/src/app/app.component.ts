@@ -5,19 +5,84 @@ import { Component } from '@angular/core';
   template:
   `
     <div>
-      <h2>日付/時刻を整形する　- date -</h2>
-      <p>あらかじめ用意されている書式</p>
-      <table>
-        <tr><th>書式</th><th>概要</th><th>結果(ja-JP)</th></tr>
-        <tr><td>medium</td><td>普通の日付/時刻 (yMMMdjms)</td><td>2017年3月17日 15:26:06</td></tr>
-        <tr><td>short</td><td>短い日付/時刻 (yMdjm)</td><td>2017/3/17 15:28</td></tr>
-        <tr><td>fullDate</td><td>完全な日付 (yMMMMMEEEEd)</td><td>2017年3月17日金曜日</td></tr>
-        <tr><td>longDate</td><td>長い日付(yMMMMd)</td><td>2017年3月17日</td></tr>
-        <tr><td>mediumDate</td><td>普通の日付(yMMMd)</td><td>2017年3月17日</td></tr>
-        <tr><td>shortDate</td><td>短い日付 (yMd)</td><td>2017/3/17</td></tr>
-        <tr><td>mediumTime</td><td>普通の時刻 (jms)</td><td>15:26:06</td></tr>
-        <tr><td>shortTime</td><td>短い時刻 (jm)</td><td>15:26</td></tr>
-      </table>
+      <h2>文字列を大文字に変換する　- uppercase -</h2>
+      <p>元の文字列:{{strValue}} ⇒ uppercase: {{strValue | uppercase}}</p>
+
+      <h2>文字列を小文字に変換する　- lowercase -</h2>
+      <p>元の文字列:{{strValue}} ⇒ lowercase: {{strValue | lowercase}}</p>
+
+      <h2>単語の先頭文字を大文字に変換する　- titlecase -</h2>
+      <p>元の文字列:{{strValue}} ⇒ titlecase: {{strValue | titlecase}}</p>
+    </div>
+
+    <div>
+      <h2>オブジェクトをJSON形式に変換する - json -</h2>
+      <p>デバッグ時にオブジェクトの内容をダンプするようなケースで使用する。<br/>
+         undefined(未定義)のプロパティやメソッドは変換に含まれない。<br/>
+         式全体をpreタグで囲むと見やすい。
+      </p>
+      <pre>{{jsonObj | json}}</pre>
+    </div>
+
+    <div>
+      <h2>文字列から特定の範囲の部分文字列を切り出す - slice -</h2>
+      <p>元の文字列: {{strSliceValue}}</p>
+      <p>slice: 3       ⇒ {{strSliceValue | slice: 3}}</p>
+      <p>slice: 3: 5    ⇒ {{strSliceValue | slice: 3: 5}}</p>
+      <p>slice: 99      ⇒ {{strSliceValue | slice: 99}} (※エラーにならない)</p>
+      <p>slice: -3      ⇒ {{strSliceValue | slice: -3}}</p>
+      <p>slice: -3: -2  ⇒ {{strSliceValue | slice: -3: -2}}</p>
+    </div>
+
+    <div>
+      <h2>配列から特定の要素を取り出す - slice -</h2>
+      <p>元の文字列: {{arySliceValue}}</p>
+      <p>slice: 3       ⇒ {{arySliceValue | slice: 3}}</p>
+      <p>slice: 3: 5    ⇒ {{arySliceValue | slice: 3: 5}}</p>
+      <p>slice: 99      ⇒ {{arySliceValue | slice: 99}} (※エラーにならない)</p>
+      <p>slice: -3      ⇒ {{arySliceValue | slice: -3}}</p>
+      <p>slice: -3: -2  ⇒ {{arySliceValue | slice: -3: -2}}</p>
+    </div>
+
+    <div>
+      <h2>数値を桁区切り文字で整形して出力する - number -</h2>
+      <p>元の値:{{numValue}}</p>
+      <p>デフォルト：{{numValue | number }} ・・・引数infoを省略すると小数点以下第４位を四捨五入して第3位まで表示</p>
+      <p>整数部、小数部の桁数指定 = {{numValue | number: '5.0-2'}} ※整数最小桁.小数最小桁-小数最大桁 (5.0-2)</p>
+      <p>整数：{{numValue | number: '1.0-0'}}</p>
+    </div>
+
+    <div>
+    <h2>アプリのロケールを指定する</h2>
+    <p>
+      app.module.tsにLOCALE_IDを記載する<br/>
+      日本：ja-JP<br/>
+      ドイツ:de-DE<br/>
+      アメリカ：en-US<br/>
+      フランス:fr-FR<br/>
+      ※上記　numberパイプはロケールの影響を受ける。ドイツを指定する小数点がカンマになり、ピリオドが３桁区切りになる
+    </p>
+    </div>
+
+    <div>
+    <h2>数値を通貨形式に整形する - currency -</h2>
+    <ul>
+      <li>デフォルト:{{currencyValue | currency }}</li>
+      <li>通貨コード：{{currencyValue | currency: 'JPY'}}</li>
+      <p>指定した通貨により、小数点以下桁数が自動で変更される</p>
+      <li>通貨記号　円:{{currencyValue | currency: 'JPY' : true }}</li>
+      <li>通貨記号　ユーロ:{{currencyValue | currency: 'EUR' : true }}</li>
+      <p>明示的に小数部の桁数を指定することもできる</p>
+      <li>桁数指定：{{currencyValue | currency: 'JPY' : true: '1.0-1'}} ※整数最小桁.小数最小桁-小数最大桁 (1.0-1)</li>
+    </ul>
+    </div>
+
+    <div>
+    <h2>数値をパーセントに整形する - percent -</h2>
+    <ul>
+      <li>デフォルト：{{percentValue | percent }}</li>
+      <li>小数第一まで：{{percentValue | percent: '1.0-1'}} ※整数最小桁.小数最小桁-小数最大桁 (1.0-1)</li>
+    </ul>
     </div>
   `,
   styles:
@@ -30,10 +95,6 @@ import { Component } from '@angular/core';
     h3 {
       font-size: 102%;
     }
-
-    table {
-      .border: 1px;
-    }
   `]
 
 })
@@ -42,7 +103,7 @@ import { Component } from '@angular/core';
 
 // -------------------------------
 // ----- Angular標準のパイプ -----
-// lowercase    大文字から小文字に変換　
+// lowercase    大文字から小文字に変換
 // uppercase    小文字から大文字に変換
 // titlecase    単語の先頭文字を大文字に変換
 // slice        文字列から部分文字列を切り出し
@@ -55,5 +116,28 @@ import { Component } from '@angular/core';
 // i18nSelect   文字列に応じて出力を切り替え
 // async        Observable・Promiseによる樋津凰稀処理の結果を取得 Chap7
 export class AppComponent  {
+  strValue: string = 'THIS IS a ｐｅｎ'; // 全角でもok
 
+  jsonObj: any = {
+    name: 'おおさか　はなこ',
+    gender: undefined,
+    birth: new Date(207, 7, 15) ,
+    age: 3,
+    wrok: function() { /* メソッドの中身 */ },
+    family: ['タロウ', 'ジロウ'],
+    other: {
+      favorite: 'たこやき',
+      memo: 'めも'
+    }
+  };
+
+  strSliceValue: string = 'いろはにほへとちりぬるを';
+
+  arySliceValue = ['い', 'ろ', 'は', 'に', 'ほ', 'へ', 'と', 'ち', 'り', 'ぬ', 'る', 'を' ];
+
+  numValue = 3500.5234;
+
+  currencyValue = 3500.125;
+
+  percentValue = 0.123456;
 }
