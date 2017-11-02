@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template:
   `
+  <h1>chap3-5:イベントバインディング</h1>
   <div>
     <h2>▼pat1 ボタンクリックで現在時刻を表示</h2>
     <input type = "button" (click) = "showDateTime()" value = "現在時刻" />

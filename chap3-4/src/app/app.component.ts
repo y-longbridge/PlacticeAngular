@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template:
   `
+  <h1>chap3-4:その他のバインディング（属性、クラス、スタイル）</h1>
   <div>
     <h2>▼pat1 属性バインディング</h2>
     <table border="1">

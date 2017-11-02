@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template:
   `
+  <h1>chap3-6:双方向バインディング</h1>
   <div>
     <h2>▼pat1</h2>
     <form>

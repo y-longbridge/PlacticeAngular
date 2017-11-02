@@ -5,6 +5,7 @@ import { DomSanitizer, SafeHtml, SafeResourceUrl } from '@angular/platform-brows
   selector: 'my-app',
   template:
   `
+  <h1>chap3-3:プロパティバインディング</h1>
   <div><h2>▼pat1</h2> {{member1.name}}</div>
   <div><h2>▼pat2</h2> {{member2?.name}}</div>
   <div>
