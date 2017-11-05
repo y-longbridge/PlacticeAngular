@@ -1,0 +1,17 @@
+div {
+  margin: 10px;
+  padding: 10px;
+  border: medium solid #000;
+  border-radius: 20px;
+}
+.mycomp1 {
+  background-color: #ff0;
+}
+
+.mycomp2 {
+  background-color: #0ff;
+}
+
+.mycomp3 {
+  background-color: #0f0;
+}

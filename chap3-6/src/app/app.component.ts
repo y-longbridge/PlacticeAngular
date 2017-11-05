@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   template:
   `
   <h1>chap3-6:双方向バインディング</h1>
+  <p>双方向バインディング使用するには、app.module.tsにFormsModuleを追加する必要がある</p>
   <div>
     <h2>▼pat1</h2>
     <form>
@@ -55,7 +56,7 @@ import { Component } from '@angular/core';
   `]
 })
 // ***************************************************** //
-// 双方向バインディング　
+// 双方向バインディング
 // ※ app.module.tsにFormsModuleを追加する ※
 export class AppComponent  {
   // ▼pat1▼ //

@@ -19,7 +19,8 @@ https://angular.io/
 https://mae.chab.in/archives/59814
 Angular Tips
 http://www.buildinsider.net/web/angulartips
-
+リファレンス
+http://www.webcreativepark.net/javascript/
 
 ■ファイルはUTF-8で保存しないと文字化けする
 
