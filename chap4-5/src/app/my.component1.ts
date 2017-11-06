@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
         <h3>MyComponent1</h3>
       </div>
     `,
-    styles: [`app/my.component.css`]
+    styleUrls: [`app/my.component.css`]
   })
 
   export class MyComponent1 {}
