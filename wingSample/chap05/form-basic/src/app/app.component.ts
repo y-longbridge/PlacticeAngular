@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
       <input id="mail" name="mail" type="email"
         [(ngModel)]="user.mail" #mail="ngModel" required email />
       <span *ngIf="mail.errors?.required">メールアドレスは必須です。</span>
-      
+
       <!--hasErrorメソッドの場合-->
       <!--<span *ngIf="mail.hasError('required')">メールアドレスは必須です。</span>-->
-      
+
       <span *ngIf="mail.errors?.email">
         メールアドレスを正しい形式で入力してください。</span>
     </div>
@@ -21,10 +21,10 @@ import { Component } from '@angular/core';
       <input id="passwd" name="passwd" type="password"
         [(ngModel)]="user.passwd"
         required minlength="6" #passwd="ngModel" />
-      <!--<span *ngIf="passwd.errors?.required">
+      <span *ngIf="passwd.errors?.required">
+        パスワードは必須です。</span>
+      <!--<span *ngIf="passwd.errors?.required&& passwd.dirty">
         パスワードは必須です。</span>-->
-      <span *ngIf="passwd.errors?.required&& passwd.dirty">
-        パスワードは必須です。</span>        
        <span *ngIf="passwd.errors?.minlength">
         パスワードは6文字以上で入力してください。</span>
     </div>
@@ -52,20 +52,20 @@ import { Component } from '@angular/core';
         備考は10文字以内で入力してください。</span>
     </div>
     <div>
-      <input type="submit" value="送信" 
+      <input type="submit" value="送信"
         [disabled]="myForm.invalid" />
 
       <!--サブミット済みかどうかを判定-->
-      <!--<input type="submit" value="送信" 
+      <!--<input type="submit" value="送信"
         [disabled]="myForm.invalid|| myForm.submitted" />-->
 
         <!--pristine／dirtyプロパティを利用したリセットボタン-->
         <!--<input type="reset" value="リセット" [disabled]="myForm.pristine" />-->
-        <!--<input type="reset" value="リセット" [disabled]="!myForm.dirty" />-->      
+        <!--<input type="reset" value="リセット" [disabled]="!myForm.dirty" />-->
     </div>
     </form>
     <!-- <pre>{{myForm.value | json}}</pre> -->
-    
+
 
   `
 })
@@ -81,6 +81,6 @@ export class AppComponent {
     console.log('メールアドレス：' + this.user.mail);
     console.log('パスワード：' + this.user.passwd);
     console.log('名前（漢字）：' + this.user.name);
-    console.log('備考：' + this.user.memo); 
+    console.log('備考：' + this.user.memo);
   }
 }

@@ -47,27 +47,23 @@ import { Component } from '@angular/core';
     </div>
 
     <div>
-      <label for="num5">数値5桁:</label><br/>
-      <input id="num5" name="num5" [(ngModel)]="user.num5" required pattern="\d{5}" />
-      <!--<span *ngIf="num5.errors?.pattern">正しい形式で入力してください</span>-->
-    </div>
+      <label for="numPat">数字入力:</label><br/>
+      <input id="numPat" name="num5" type="text" [(ngModel)]="user.numPat" required pattern="[0-9]{4}" #numPat="ngModel" />
+      <span *ngIf="numPat.errors?.required">数字入力は必須です。</span>
+      <span *ngIf="numPat.errors?.pattern">数字4桁で入力してください。</span>
+  </div>
+
     <div>
-      <input type="submit" value="送信"
-        [disabled]="myForm.invalid" />
-
-      <!--サブミット済みかどうかを判定-->
-      <!--<input type="submit" value="送信"
-        [disabled]="myForm.invalid|| myForm.submitted" />-->
-
-        <!--pristine／dirtyプロパティを利用したリセットボタン-->
-        <!--<input type="reset" value="リセット" [disabled]="myForm.pristine" />-->
-        <!--<input type="reset" value="リセット" [disabled]="!myForm.dirty" />-->
+      <input type="submit" value="送信" [disabled]="myForm.invalid" />
     </div>
 
 
     </form>
-    <!-- <pre>{{myForm.value | json}}</pre> -->
 
+    <div>
+    <P>入力値をまとめて受け取る</P>
+    <pre>{{myForm.value | json}}</pre>
+    </div>
 
   `
 })
@@ -77,7 +73,7 @@ export class AppComponent {
     passwd: '',
     name: 'はなこ',
     memo: 'めも',
-    num5: 12345
+    numPat: ''
   };
 
   show() {
