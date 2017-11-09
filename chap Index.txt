@@ -46,7 +46,9 @@ chap4-5:構造ディレクティブ4  -- ngTemplateOutlet, ngComponentOutlet
     ngComponentOutlet       用意されたコンポーネントをインポート    
     ------------------------------------------------------
 chap5-1:フォーム開発の基本
-chap5-2:フォームの構成要素
+chap5-2:フォームの検証機能
+chap5-3:フォームの状態を検知
+
 
 
 
