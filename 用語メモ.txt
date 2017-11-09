@@ -24,3 +24,6 @@ http://www.webcreativepark.net/javascript/
 
 ■ファイルはUTF-8で保存しないと文字化けする
 
+■angular CLI × Asp.net core
+http://slides.com/tkiryu/aspnetcore-angularcli/embed
+

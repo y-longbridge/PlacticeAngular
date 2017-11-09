@@ -15,9 +15,12 @@ import { Component } from '@angular/core';
     </ul>
     <form #myForm="ngForm" novalidate>
       <div class="input">
-        <input id="inpName" #inpName="ngModel" type="text"  />
-        <p>何か変更されたか: <span *ngIf="inpName.pristine">変更された</span><span *ngIf="!inpName.pristine">変更されていない</span></p>
-      </div>
+        <input id="inpName" name="inpName" type="text" [(ngModel)]="inpValues.inpName" #inpName="ngModel"/>
+        <p>何か変更されていないか（pristine）: <span *ngIf="inpName.pristine">変更されていない</span><span *ngIf="!inpName.pristine">変更された</span></p>
+        <p>何か変更されたか（dirty）: <span *ngIf="inpName.dirty">変更された</span><span *ngIf="!inpName.dirty">変更されていない</span></p>
+        <p>フォーム/入力要素に一度でもフォーカスが当たった（touched）: <span *ngIf="inpName.touched">当たった</span><span *ngIf="!inpName.touched">当たっていない</span></p>
+        <p>フォーム/入力要素に一度でもフォーカスが当たっていない（untouched）: <span *ngIf="inpName.untouched">当たっていない</span><span *ngIf="!inpName.untouched">当たった</span></p>
+        </div>
     </form>
   </div>
   <div>
