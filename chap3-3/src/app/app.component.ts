@@ -18,7 +18,7 @@ import { DomSanitizer, SafeHtml, SafeResourceUrl } from '@angular/platform-brows
     <h2>▼pat4</h2>
     <h3>タグはエスケープされ、文字列として出力</h3>
     {{msg}}
-    <p><b>innnerHTMLで出力。危険性の高いStyle属性が除去（サニタイズ）される</b></p>
+    <p><b>innerHTMLで出力。危険性の高いStyle属性が除去（サニタイズ）される</b></p>
     <div [innerHTML] = "msg" ></div>
     <h3>信頼済みマークを与えて、サニタイズさせない</h3>
     <div [innerHTML] = "safeMsg" ></div>
