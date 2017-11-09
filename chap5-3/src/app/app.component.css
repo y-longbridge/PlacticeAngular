@@ -1,0 +1,18 @@
+h2 {
+  color : #b5495b;
+  font-size: 110%;
+}
+h3 {
+  font-size: 102%;
+}
+
+div .inp {
+  margin-top: 30px;
+}
+
+div .inp .err {
+  color: #ff0000;
+}
+div .inp .descript {
+  font-size: 80%;
+}

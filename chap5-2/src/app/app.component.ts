@@ -17,7 +17,6 @@ import { Component } from '@angular/core';
         <li>検証時等にテンプレート内からアクセスできるようにテンプレート参照変数「#xxxxx="ngModel"」を指定しておく</li>
       </ul>
     </div>
-
     <div>
       <h3>Angularの標準の検証</h3>
       <ul>
@@ -76,29 +75,32 @@ import { Component } from '@angular/core';
       <li>入力要素名.invalid・・・入力値にエラーがあるか</li>
       <li>フォーム名.valid・・・フォームの各入力要素の入力値が正しいか</li>
       <li>フォーム名.invalid・・・フォームの各入力要素の入力値にエラーがあるか</li>
-  </ul>
+    </ul>
 
     <div>
       <label for="inpRes1">required:</label>
       <input id="inpRes1" name="inpRes1" type="text" [(ngModel)]="inpResult" #inpRes1="ngModel" required />
       <p>検証結果</p>
-      <p>required検証にエラーがあるか（errorsオブジェクト） :<span *ngIf = "inpRes1.errors?.required" >ある</span></p>
-      <p>required検証にエラーがあるか（hasErrorメソッド） :<span *ngIf = "inpRes1.hasError('required')" >ある</span></p>
-      <p>入力値が正しいか :<span *ngIf = "inpRes1.valid" >正しい</span></p>
-      <p>入力値にエラーがるか :<span *ngIf = "inpRes1.invalid" >あり</span></p>
-
+      <p>required検証にエラーがあるか（errorsオブジェクト） :<span *ngIf = "inpRes1.errors?.required" >ある</span><span *ngIf = "!inpRes1.errors?.required" >ない</span></p>
+      <p>required検証にエラーがあるか（hasErrorメソッド） :<span *ngIf = "inpRes1.hasError('required')" >ある</span><span *ngIf = "!inpRes1.hasError('required')" >ない</span></p>
+      <p>入力値が正しいか :<span *ngIf = "inpRes1.valid" >正しい</span><span *ngIf = "!inpRes1.valid" >正しくない</span></p>
+      <p>入力値にエラーがるか :<span *ngIf = "inpRes1.invalid" >あり</span><span *ngIf = "!inpRes1.invalid" >ない</span></p>
     </div>
 
-
-
-
-
-
-
-
+    <h3>補足</h3>
+      <p>各検証要素は chap5-3に記載のdirtyプロパティと併用する</p>
+      <div class="inp">
+        <input id="inpReq1" name="inpReq1" type="text" [(ngModel)]="inpValues2.inpReq" #inpReq1="ngModel" required />
+        <span class="err" *ngIf="inpReq1.errors?.required">入力してください</span>
+        <p class="descript">まだ入力していない状態でもエラーメッセージが表示される。</p>
+      </div>
+      <div class="inp">
+        <input id="inpReq2" name="inpReq2" type="text" [(ngModel)]="inpValues2.inpReqDty" #inpReq2="ngModel" required />
+        <span class="err" *ngIf="inpReq2.errors?.required && inpReq2.dirty">入力してください</span>
+        <p class="descript">durtyプロパティを使用すると、入力後に内容を削除するとエラーメッセージが表示される。</p>
+      </div>
 
   </div>
-
 `})
 
 //-------------------------------------------------------------
@@ -113,4 +115,9 @@ export class AppComponent  {
   }
 
   inpResult = '';
+
+  inpValues2 = {
+    inpReq : '',
+    inpReqDty : ''
+  }
 }
