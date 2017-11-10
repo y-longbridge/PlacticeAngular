@@ -6,25 +6,39 @@ import { Component } from '@angular/core';
   template: `
   <h1>フォームの状態を検知</h1>
   <div>
-    <h3>入力の有無を判定する</h3>
+    <h2>入力の有無を判定する</h2>
     <ul>
       <li>name.pristine・・・フォーム/入力要素が変更されていない</li>
       <li>name.dirty・・・フォーム/入力要素が更新された</li>
       <li>name.touched・・・フォーム/入力要素に一度でもフォーカスが当たった</li>
       <li>name.untouched・・・フォーム/入力要素に一度もフォーカスが当たっていない</li>
+      <li>formname.submitted・・・フォームが送信済みかどうか</li>
     </ul>
-    <form #myForm="ngForm" novalidate>
+    <form #myForm="ngForm" (ngSubmit)="show()" novalidate>
       <div class="input">
         <input id="inpName" name="inpName" type="text" [(ngModel)]="inpValues.inpName" #inpName="ngModel"/>
         <p>何か変更されていないか（pristine）: <span *ngIf="inpName.pristine">変更されていない</span><span *ngIf="!inpName.pristine">変更された</span></p>
         <p>何か変更されたか（dirty）: <span *ngIf="inpName.dirty">変更された</span><span *ngIf="!inpName.dirty">変更されていない</span></p>
         <p>フォーム/入力要素に一度でもフォーカスが当たった（touched）: <span *ngIf="inpName.touched">当たった</span><span *ngIf="!inpName.touched">当たっていない</span></p>
         <p>フォーム/入力要素に一度でもフォーカスが当たっていない（untouched）: <span *ngIf="inpName.untouched">当たっていない</span><span *ngIf="!inpName.untouched">当たった</span></p>
-        </div>
+        <input type="submit" value="送信"  />
+        <p>サブミット済みかどうか(form.submitted)：<span *ngIf="myForm.submitted">送信済み</span><span *ngIf="!myForm.submitted">未送信</span></p>
+      </div>
     </form>
   </div>
-  <div>
 
+
+  <div>
+    <h2>状態による入力用のスタイルを変更する</h2>
+    <ul>
+      <li>ng-valid・・・入力値が妥当</li>
+      <li>ng-invalid・・・入力値が不正</li>
+      <li>ng-pristine・・・入力値が初期値から変更されていない</li>
+      <li>ng-dirty・・・入力値が初期値から変更された</li>
+      <li>ng-touched・・・要素にフォーカスが当たったことがある</li>
+      <li>ng-untouched・・・要素にフォーカスが当たったことがない</li>
+      <li>nu-submitted・・・フォームがサブミットされた</li>
+    </ul>
   </div>
 
 
@@ -35,5 +49,7 @@ export class AppComponent  {
   inpValues = {
     inpName : "はなこ"
   };
-
+  show() {
+    this.inpValues.inpName = "はなこ２";
+  }
 }
