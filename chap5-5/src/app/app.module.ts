@@ -1,6 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/Foms';
+import { FormsModule }   from '@angular/Forms';
+
+
 import { AppComponent }  from './app.component';
 
 @NgModule({
