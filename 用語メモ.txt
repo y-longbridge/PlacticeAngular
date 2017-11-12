@@ -27,3 +27,6 @@ http://www.webcreativepark.net/javascript/
 ■angular CLI × Asp.net core
 http://slides.com/tkiryu/aspnetcore-angularcli/embed
 
+■TypeScript
+https://qiita.com/nogson/items/63519abe945cfa806951
+

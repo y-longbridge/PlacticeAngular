@@ -6,13 +6,10 @@ h3 {
   font-size: 102%;
 }
 
-div .inp {
-  margin-top: 30px;
-}
-
-div .inp .err {
+.err {
   color: #ff0000;
 }
-div .inp .descript {
-  font-size: 80%;
+
+.inp-style.ng-invalid.ng-dirty {
+  background-color: rgb(189, 143, 143);
 }

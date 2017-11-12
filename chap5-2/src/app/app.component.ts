@@ -97,7 +97,7 @@ import { Component } from '@angular/core';
       <div class="inp">
         <input id="inpReq2" name="inpReq2" type="text" [(ngModel)]="inpValues2.inpReqDty" #inpReq2="ngModel" required />
         <span class="err" *ngIf="inpReq2.errors?.required && inpReq2.dirty">入力してください</span>
-        <p class="descript">durtyプロパティを使用すると、入力後に内容を削除するとエラーメッセージが表示される。</p>
+        <p class="descript">durtyプロパティを使用すると、入力後に内容を削除するとエラーメッセージが表示される。dirtyを後ろにしないと正常に動かなかった</p>
       </div>
 
   </div>
