@@ -6,11 +6,25 @@ import { Component } from '@angular/core';
   template: `
   <div>
     <h1>フォーム　Tips</h1>
+
     <div>
       <h2>文字数カウント機能付きテキストエリア</h2>
       <textarea cols="70" rows="5" name="tweet" [(ngModel)]="tweet" (input)="setColor()" ></textarea>
       <div [ngStyle]="myStyle">{{count}}</div>
     </div>
+
+
+    <div>
+      <h2>テキストボックスの内容を区切り文字で分割する</h2>
+      <label for="mail"> メールアドレス</label>
+      <textarea id="mail" name="mail" type="text"
+          [ngModel]="emails.join(';')"
+           (ngModelChange)="emails=$event.split(';')" ></textarea>
+      <ul>
+        <li *ngFor= "let email of emails">{{email}}</li>
+      </ul>
+    </div>
+
   </div>
   `,
 })
@@ -33,4 +47,6 @@ export class AppComponent  {
       this.myStyle = { color: '#f00', fontWeight: 'bold' };
     }
   }
+
+  emails : string[] = [];
 }
