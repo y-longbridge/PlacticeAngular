@@ -10,9 +10,7 @@ import { Component } from '@angular/core';
       <h2>文字数カウント機能付きテキストエリア</h2>
       <textarea cols="70" rows="5" name="tweet" [(ngModel)]="tweet" (input)="setColor()" ></textarea>
       <div [ngStyle]="myStyle">{{count}}</div>
-
     </div>
-
   </div>
   `,
 })
