@@ -4,15 +4,20 @@ import { Book } from './book';
 
 @Component({
   selector: 'my-app',
-  styleUrls:['./app.components.css'],
+  styleUrls:['app/app.component.css'],
   template: `
+  <h1>親コンポーネントから子コンポーネントに値を渡す(@Inputデコレーター）</h1>
   <div>
     <span *ngFor="let b of books">
       [<a href="#" (click)="onClick(b)">{{b.title}}</a>]
     </span>
   </div>
   <hr/>
+  <!-- 子コンポーネントに用意したitemプロパティで値を設定し、子コンポーネントをレンダリング -->
   <detail-book [item]="selected"></detail-book>
+
+  <!-- 子コンポーネントに用意したdataプロパティで値を設定し、子コンポーネントをレンダリング -->
+  <detail-book [data]="selected"></detail-book>
   `,
 })
 
