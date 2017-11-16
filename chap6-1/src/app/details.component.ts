@@ -28,17 +28,17 @@ import { Book } from './book';
     </div>
   </ng-container>
 
-  <ng-container *ngIf="item3">
-  <div>
-    <h3>item3プロパティ値から表示</h3>
-    <ul>
-      <li>ISBNコード：{{item3.isbn}}</li>
-      <li>書名:{{item3.title}}</li>
-      <li>価格：{{item3.price | number}}円</li>
-      <li>出版社：{{item3.publisher}}</li>
-    </ul>
-  </div>
-</ng-container>
+  <ng-container *ngIf="Item3">
+    <div>
+      <h3>item3プロパティ値から表示</h3>
+      <ul>
+        <li>ISBNコード：{{Item3.isbn}}</li>
+        <li>書名:{{Item3.title}}</li>
+        <li>価格：{{Item3.price | number}}円</li>
+        <li>出版社：{{Item3.publisher}}</li>
+      </ul>
+    </div>
+  </ng-container>
   `})
 /* ----------------------------------------------------------------------------
 プロパティに@Inputデコレーターを付与すると、親コンポーネント(app.component.ts)からitem属性で値を受け取れる

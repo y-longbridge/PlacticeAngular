@@ -20,7 +20,7 @@ import { Book } from './book';
   <detail-book [data]="selected"></detail-book>
 
   <!-- 子コンポーネントに用意したitem3のセッタープロパティに値を設定し、子コンポーネントをレンダリング -->
-  <detail-book [item3]="selected"></detail-book>
+  <detail-book [Item3]="selected"></detail-book>
 
   `,
 })
