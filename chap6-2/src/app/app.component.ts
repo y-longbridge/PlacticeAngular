@@ -8,11 +8,11 @@ import { Book } from './Book';
   <h1>子コンポーネントからイベントを受け取る(@Outpuデコレーター）</h1>
   <div>
     <span *ngFor="let b of books">
-      [<a href-"#" (click)="onclick(b)">{{b.title}}</a>]
+      [<a href="#" (click)="onclick(b)">{{b.title}}</a>]
     </span>
 
     <hr/>
-    <edit-book></edit-book>
+    <edit-book [item]="selected"></edit-book>
   </div>
 
 
@@ -24,6 +24,9 @@ import { Book } from './Book';
 
 ------------------------------------------------- */
 export class AppComponent  {
+   //
+    selected: Book;
+
    // 書籍情報を準備
    books = [
     {
@@ -57,4 +60,8 @@ export class AppComponent  {
       publisher: '日経BP社',
     }
   ];
+
+  onclick(book: Book) {
+    this.selected = book;
+  }
 }
