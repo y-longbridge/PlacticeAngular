@@ -40,8 +40,18 @@ import { Book } from './Book';
 export class EditComponent {
   @Input() item: Book;
 
-  //サブミット時の処理
-  onsubmit() {
+  // イベント定義
+  @Output() edited = new EventEmitter<Book>();
 
+  // イベント名を changed にする場合
+  @Output('changed') edited2 = new EventEmitter<Book>();
+
+  // サブミット時の処理
+  onsubmit() {
+    // emitメソッドでイベントを発生させる
+    //this.edited.emit(this.item);
+
+    this.edited2.emit(this.item);
   }
+
 }

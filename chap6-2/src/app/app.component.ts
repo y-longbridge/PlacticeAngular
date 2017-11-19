@@ -12,7 +12,9 @@ import { Book } from './Book';
     </span>
 
     <hr/>
-    <edit-book [item]="selected"></edit-book>
+    <!-- <edit-book [item]="selected" (edited)="onedited($event)"></edit-book> -->
+    <edit-book [item]="selected" (changed)="onedited($event)"></edit-book>
+
   </div>
 
 
@@ -64,4 +66,20 @@ export class AppComponent  {
   onclick(book: Book) {
     this.selected = book;
   }
+
+  // 子コンポーネントからのイベントを処理
+  onedited(book: Book) {
+     for (let item of this.books) {
+       if (item.isbn === book.isbn ) {
+          item.title = book.title;
+          item.price = book.price;
+          item.publisher = book.publisher;
+       }
+     }
+     // 選択された書籍情報を空にしフォームを非表示にする
+     this.selected = null;
+  }
+
+
+
 }
